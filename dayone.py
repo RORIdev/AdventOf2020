@@ -5,9 +5,8 @@ def readfile():
 
 
 def get2020pair(arr, _min) -> (int, int):
-    for i in arr:
-        if i - 2020 in arr:
-            return i, i - 2020
+    prune = [x for x in arr if 2020 - x in arr]
+    return prune[0], prune[1]
 
 
 def get2020triad(arr, _min) -> (int, int, int):
