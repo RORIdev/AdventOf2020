@@ -6,13 +6,13 @@ def readfile():
 
 def get2020pair(arr, _min) -> (int, int):
     prune = [x for x in arr if x + _min <= 2020]
-    values = [(i, j) for i in arr for j in arr if i + j == 2020]
+    values = [(i, j) for i in prune for j in prune if i + j == 2020]
     return values[0]
 
 
 def get2020triad(arr, _min) -> (int, int, int):
     prune = [x for x in arr if x + _min <= 2020]
-    values = [(i, j, x) for i in arr for j in arr for x in arr if i + j + x == 2020]
+    values = [(i, j, x) for i in prune for j in prune for x in prune if i + j + x == 2020]
     return values[0]
 
 
