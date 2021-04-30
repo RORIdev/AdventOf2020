@@ -10,9 +10,12 @@ def get2020pair(arr, _min) -> (int, int):
 
 
 def get2020triad(arr, _min) -> (int, int, int):
-    prune = [x for x in arr if x + _min <= 2020]
-    values = [(i, j, x) for i in prune for j in prune for x in prune if i + j + x == 2020]
-    return values[0]
+    for i in arr:
+        for j in arr:
+            if i + j > 2020:
+                continue
+            if 2020 - i - j in arr:
+                return i, j, (2020-i-j)
 
 
 def solve():
