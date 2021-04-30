@@ -1,13 +1,13 @@
 def readfile():
     with open("inputs/1.txt") as f:
-        content = [int(x.strip()) for x in f.readlines()]
+        content = set(int(x.strip()) for x in f.readlines())
     return content
 
 
 def get2020pair(arr, _min) -> (int, int):
-    prune = [x for x in arr if x + _min <= 2020]
-    values = [(i, j) for i in prune for j in prune if i + j == 2020]
-    return values[0]
+    for i in arr:
+        if i - 2020 in arr:
+            return i, i - 2020
 
 
 def get2020triad(arr, _min) -> (int, int, int):
